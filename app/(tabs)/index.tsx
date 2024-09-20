@@ -1,4 +1,5 @@
 import {
+  SafeAreaView,
   Image,
   StyleSheet,
   Platform,
@@ -13,19 +14,35 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { router } from "expo-router";
 
-const styles_ = StyleSheet.create({
+const logo_area = StyleSheet.create({
+  logo: {
+    backgroundColor: "red",
+    padding: 20,
+    borderRadius: 5,
+  },
+});
+
+const button_area = StyleSheet.create({
   button: {
     backgroundColor: "red",
-    padding: 10,
+    padding: 20,
     borderRadius: 5,
   },
 });
 export default function HomeScreen() {
   return (
-    <View className="flex-1 bg-red-300">
-      <View className="flex-1 bg-orange-400"></View>
-      <View className="flex-1 bg-yellow-300"></View>
-    </View>
+    <SafeAreaView className="flex-1">
+      <View className="flex-1 bg-orange-100 justify-center items-center">
+      <View style={logo_area.logo}>
+          <Text style={{ color: "white" }}>LOGO</Text>
+        </View>
+      </View>
+      <View className="flex-1 bg-blue-300 justify-center items-center">
+      <TouchableOpacity style={button_area.button}>
+          <Text style={{ color: "white" }}>Verify With WorldID</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 }
 
