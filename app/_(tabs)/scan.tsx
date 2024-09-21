@@ -58,9 +58,20 @@ const Scan = () => {
           },
         }
       );
-      const document_number = res.data.document_number;
+
+      const isAdded = await axios.post(
+        "http://localhost:4000/add-user",
+        res.data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     } finally {
       setLoading(false);
     }

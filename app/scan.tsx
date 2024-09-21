@@ -58,10 +58,19 @@ const Scan = () => {
           },
         }
       );
-      setLoading(false);
-      console.log(res.data);
+
+      const d = JSON.parse(res.data ?? {});
+      console.log("read");
+      console.log(d.name);
+      const isAdded = await axios.post(
+        process.env.EXPO_PUBLIC_MRZ_BE_URL + "/add-user",
+        d
+      );
+      console.log(isAdded);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
