@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 
+<<<<<<< Updated upstream:app/(tabs)/index.tsx
 const logo_area = StyleSheet.create({
   logoContainer: {
     padding: 40, // Daha fazla padding ekledik
@@ -46,6 +47,22 @@ export default function HomeScreen() {
       <TouchableOpacity style={button_area.button}>
         <Text style={{ color: "white" }}>Verify With WorldID</Text>
       </TouchableOpacity>
+=======
+import { HelloWave } from "@/components/HelloWave";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import { router } from "expo-router";
+
+export default function HomeScreen() {
+  return (
+    <SafeAreaView className="flex-1">
+      <View className="flex-1 bg-blue-300 justify-center items-center">
+        <TouchableOpacity>
+          <Text style={{ color: "white" }}>Verify With WorldID</Text>
+        </TouchableOpacity>
+      </View>
+>>>>>>> Stashed changes:app/_(tabs)/index.tsx
     </SafeAreaView>
   );
 }
