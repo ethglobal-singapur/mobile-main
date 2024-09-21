@@ -2,65 +2,57 @@ import {
   SafeAreaView,
   Image,
   StyleSheet,
-  Platform,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import { router } from "expo-router";
-
 const logo_area = StyleSheet.create({
-  logo: {
-    backgroundColor: "red",
-    padding: 20,
-    borderRadius: 5,
+  logoContainer: {
+    padding: 40, // Daha fazla padding ekledik
+    borderRadius: 15, // Yuvarlatılmış köşeler için radiusu arttırdık
+    alignItems: 'center',
+  },
+  logoImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50, // Logoyu daha yuvarlatmak için border radius ekledik
   },
 });
 
 const button_area = StyleSheet.create({
   button: {
-    backgroundColor: "red",
+    backgroundColor: "blue",
     padding: 20,
-    borderRadius: 5,
+    borderRadius: 50, // Daha yuvarlatılmış köşeler
+    width: 300,
+    position: 'absolute', // Butonu sabitliyoruz
+    bottom: 50, // Butonu sayfanın altına daha yakın yerleştiriyoruz
+    alignSelf: 'center', // Butonu yatayda ortalıyoruz
   },
 });
+
 export default function HomeScreen() {
   return (
-    <SafeAreaView className="flex-1">
-      <View className="flex-1 bg-orange-100 justify-center items-center">
-      <View style={logo_area.logo}>
-          <Text style={{ color: "white" }}>LOGO</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={logo_area.logoContainer}>
+          <Image
+            source={require('@/assets/images/example.png')} // Logo PNG dosyanızın yolu
+            style={logo_area.logoImage}
+          />
         </View>
       </View>
-      <View className="flex-1 bg-blue-300 justify-center items-center">
       <TouchableOpacity style={button_area.button}>
-          <Text style={{ color: "white" }}>Verify With WorldID</Text>
-        </TouchableOpacity>
-      </View>
+        <Text style={{ color: "white" }}>Verify With WorldID</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#FFFDD0", // Arka plan rengini krem rengi yaptık
   },
 });
